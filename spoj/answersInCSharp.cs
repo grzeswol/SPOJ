@@ -193,6 +193,63 @@ static string ReverseString(string s)
         }
  * 
  * 
- ////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////JROWLIN//////////////////////////////
+ * using System;
+using System.Globalization;
+
+namespace spoj
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s;
+            try
+            {
+                while ((s = Console.ReadLine().Trim().ToLower()) != null)
+                {
+                    string[] lines = s.Split(' ');
+                    double a = double.Parse(lines[0], CultureInfo.InvariantCulture);
+                    double b = double.Parse(lines[1], CultureInfo.InvariantCulture);
+                    double c = double.Parse(lines[2], CultureInfo.InvariantCulture);
+
+                    string answer = Solve(a, b, c);
+                    Console.WriteLine(answer);
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
+            
+        }
+
+        static string Solve(double a, double b, double c)
+        {
+            if (a == 0 && b == c)
+            {
+                return "NWR";
+            }
+            else if (a == 0)
+            {
+                return "BR";
+            }
+            else
+            {
+                b += -c;
+                double temp = Math.Round(-b/a, 2);
+                return temp.ToString("0.00", CultureInfo.InvariantCulture);
+            }
+        }
+        
+    }
+
+
+}
+
+
+
+///////////////////////////////////////////////////
  * 
  */
