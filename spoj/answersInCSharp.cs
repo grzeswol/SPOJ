@@ -250,6 +250,48 @@ namespace spoj
 
 
 
-///////////////////////////////////////////////////
+///////////////////////////////////////////////////JSZYCER//////////////////////////////////////
+ * private static List<char> _alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToList();
+
+        static void Main(string[] args)
+        {
+            string s;
+            try
+            {
+                while ((s = Console.ReadLine().Trim().ToLower()) != null)
+                {
+                    int shift = 3;
+                    string answer = CaesarDecrypt(s,shift);
+                    Console.WriteLine(answer);
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+        }
+
+
+        private static string CaesarDecrypt(string encryptedString, int shift)
+        {
+            StringBuilder sb = new StringBuilder();
+            encryptedString = encryptedString.ToUpper().Trim();
+            foreach (char c in encryptedString)
+            {
+                if (Char.IsLetter(c))
+                {
+                    int index = _alpha.IndexOf(c);
+                    sb.Append(_alpha[(shift + index)%_alpha.Count]);
+                }
+                else
+                {
+                    sb.Append(c);
+                }
+                
+            }
+
+            return sb.ToString();
+        }
  * 
  */
