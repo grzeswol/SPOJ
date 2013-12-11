@@ -294,4 +294,44 @@ namespace spoj
             return sb.ToString();
         }
  * 
+ ////////////////////////////////////////////////////////////JSPACE/////////////////////////////////
+ * static void Main(string[] args)
+        {
+            string s;
+            try
+            {
+                while ((s = Console.ReadLine()) != null)
+                {
+                    int lower = (s[0] == ' ') ? 0 : 1;
+
+                    var words = s.Trim().Split(' ');
+
+                    for (int i = lower; i < words.Length; i++)
+                    {
+                        words[i] = Capitalize(words[i]);
+                    }
+
+                    string answer = String.Join("", words);
+                    Console.WriteLine(answer);
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+        }
+
+        static string Capitalize(string word)
+        {
+            if (word.Length == 0)
+            {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            string firstWord = word[0].ToString();
+            sb.Append(firstWord.ToUpper() + word.Substring(1));
+            return sb.ToString();
+        }
+ * 
  */
